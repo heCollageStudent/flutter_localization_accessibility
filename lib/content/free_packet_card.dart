@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_localization_accessiblity/common.dart';
 
 class FreePackageCard extends StatelessWidget {
   const FreePackageCard({super.key});
@@ -7,32 +7,25 @@ class FreePackageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
-      ),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       margin: const EdgeInsets.all(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Berlangganan 15 hari",
+              AppLocalizations.of(context)!.freePackageTitle(15),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-              ),
+              style: TextStyle(fontSize: 16),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Gratis",
+              AppLocalizations.of(context)!.freePackagePrice,
               textAlign: TextAlign.center,
             ),
           ),
@@ -40,8 +33,8 @@ class FreePackageCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: OutlinedButton(
               onPressed: () {},
-              child: const Text(
-                "Coba sekarang",
+              child: Text(
+                AppLocalizations.of(context)!.freePackageButton,
                 textAlign: TextAlign.center,
               ),
             ),

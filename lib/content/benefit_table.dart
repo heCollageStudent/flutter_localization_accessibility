@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization_accessiblity/classes/benefit_feature.dart';
+import 'package:flutter_localization_accessiblity/common.dart';
 import 'package:flutter_localization_accessiblity/widgets/table_cell_widget.dart';
 
 class BenefitTable extends StatelessWidget {
@@ -8,9 +9,21 @@ class BenefitTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final benefitFeatureList = [
-      BenefitFeature("Akses semua kelas", true, true),
-      BenefitFeature("Ujian", true, true),
-      BenefitFeature("Kirim Submission", false, true),
+      BenefitFeature(
+        AppLocalizations.of(context)!.benefitFeatureItem1,
+        true,
+        true,
+      ),
+      BenefitFeature(
+        AppLocalizations.of(context)!.benefitFeatureItem2,
+        true,
+        true,
+      ),
+      BenefitFeature(
+        AppLocalizations.of(context)!.benefitFeatureItem3,
+        false,
+        true,
+      ),
     ];
     return Table(
       border: TableBorder.all(width: 0.5),
@@ -21,32 +34,28 @@ class BenefitTable extends StatelessWidget {
       },
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       children: [
-        const TableRow(children: [
-          TableCellWidget(
-            text: "Fitur Utama",
-            isBold: true,
-          ),
-          TableCellWidget(
-            text: "Uji Coba",
-            isBold: true,
-          ),
-          TableCellWidget(
-            text: "Langganan",
-            isBold: true,
-          ),
-        ]),
+        TableRow(
+          children: [
+            TableCellWidget(
+              text: AppLocalizations.of(context)!.benefitFeatureTitle1,
+              isBold: true,
+            ),
+            TableCellWidget(
+              text: AppLocalizations.of(context)!.benefitFeatureTitle2,
+              isBold: true,
+            ),
+            TableCellWidget(
+              text: AppLocalizations.of(context)!.benefitFeatureTitle3,
+              isBold: true,
+            ),
+          ],
+        ),
         ...benefitFeatureList.map((benefitFeature) {
           return TableRow(
             children: [
-              TableCellWidget(
-                text: benefitFeature.feature,
-              ),
-              TableCellWidget(
-                check: benefitFeature.freeBenefit,
-              ),
-              TableCellWidget(
-                check: benefitFeature.paidBenefit,
-              ),
+              TableCellWidget(text: benefitFeature.feature),
+              TableCellWidget(check: benefitFeature.freeBenefit),
+              TableCellWidget(check: benefitFeature.paidBenefit),
             ],
           );
         }),
