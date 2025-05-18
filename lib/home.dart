@@ -1,6 +1,8 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization_accessiblity/content/benefit_widget.dart';
 import 'package:flutter_localization_accessiblity/content/header_widget.dart';
+import 'package:flutter_localization_accessiblity/widgets/flag_icon_widget.dart';
 import 'package:flutter_localization_accessiblity/widgets/max_width_widget.dart';
 import 'package:flutter_localization_accessiblity/widgets/packet_list.dart';
 
@@ -17,12 +19,11 @@ class HomePage extends StatelessWidget {
         ),
         title: const Text("Dicoding Academy"),
         actions: [
+          const FlagIconWidget(),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.flag),
-          ),
-          IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppSettings.openAppSettings;
+            },
             icon: const Icon(Icons.settings),
           ),
         ],
